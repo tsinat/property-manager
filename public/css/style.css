@@ -1,0 +1,103 @@
+.navbar{
+    background-color: #252525;
+    color:white;
+    font-weight:bold;
+    font-size: 1.5em;
+    border-radius: 0;
+}
+.container{
+    width:95%;
+}
+h1{
+    text-align: center;
+}
+.listPoke{
+    text-align: center;
+    display:block;
+    width: 100%;
+    height: 60px;
+    font-size: 1.5em;
+    border: 1px solid grey;
+    border-radius: 30px;
+}
+div{
+
+    margin-left:60px;
+}
+.navigation{
+    text-align: center;
+}
+.navigation li{
+    border:1px solid black;
+    padding:10px;
+    display:inline-block;
+}
+.detailCont{
+    border:2px solid grey;
+}
+.nameList{
+    width:100%;
+    padding-top:10px;
+    padding-left:30px;
+    background-color: grey;
+    margin-left:0;
+    margin-bottom: 30px;
+}
+.submit{
+    margin-left: 60px;
+}
+.select{
+    height:100px;
+}
+.flashContainer{
+    /*background-color: grey;*/
+    margin-top:10px;
+    border:1px solid grey;
+    border-radius: 10px;
+    padding: 20px;
+}
+.checkAnswer{
+    margin-top:20px;
+    margin-left:60px;
+}
+.quizCard{
+    padding:20px;
+    margin-top: 40px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+span{
+    font-weight: bold;
+}
+
+/*day two stylesheet*/
+.tenantFormContainer{
+    width:30%;
+    float: left;
+    height:800px;
+    /*background-color:lightblue;*/
+    margin: 0;
+    padding:0;
+}
+.tenantListContainer{
+    width: 68%;
+    height:800px;
+    float: right;
+    /*background-color:grey;*/
+    margin:0;
+    padding-left:30px;
+}
+.filterCollection{
+    border: 1px solid grey;
+    margin-top: 60px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.rent {
+    padding:20px;
+    margin-left:0;
+    margin-bottom:10px;
+    /*background-color: grey;*/
+    /*color: white;*/
+
+}

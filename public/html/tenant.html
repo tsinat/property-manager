@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="tenantFormContainer">
+        <form ng-if="editTenant" ng-submit='saveEditedTenant()'>
+            <h2 class='text-center'>Edit Tenant</h2>
+            <div class="form-group">
+                <label for="">Name:</label>
+                <input type="text" class='form-control' ng-model='editTenant.name' required>
+            </div>
+            <div class="form-group">
+                <label for="">email</label>
+                <input type="email" class='form-control' ng-model='editTenant.email' required>
+            </div>
+            <div class="form-group">
+                <label for="">Apartment</label>
+                <input type="number" class='form-control' ng-model='editTenant.apartment' required>
+            </div>
+            <div class="form-group">
+                <label for="">Phone Number:</label>
+                <input type="number" class='form-control' ng-model='editTenant.phone' required>
+            </div>
+            <button class='btn btn-default submit' ng-click="hideMyForm()">Cancel</button>
+            <button type='submit' class='btn btn-primary '>Save</button>
+        </form>
+
+
+        <form ng-if="!editTenant" ng-submit='saveTenant(newTenant)'>
+            <h2 class='text-center'>Add Tenant</h2>
+            <div class="form-group">
+                <label for="">Name:</label>
+                <input type="text" class='form-control' ng-model='newTenant.name' required>
+            </div>
+            <div class="form-group">
+                <label for="">email</label>
+                <input type="email" class='form-control' ng-model='newTenant.email' required>
+            </div>
+            <div class="form-group">
+                <label for="">Apartment</label>
+                <input type="number" class='form-control' ng-model='newTenant.apartment' required>
+            </div>
+            <div class="form-group">
+                <label for="">Phone Number:</label>
+                <input type="number" class='form-control' ng-model='newTenant.phone' required>
+            </div>
+            <button class='btn btn-default submit' ng-click="hideMyForm()">Cancel</button>
+            <button type='submit' class='btn btn-primary '>Add</button>
+        </form>
+    </div>
+
+    <div class="tenantListContainer">
+        <h1>Tenants</h1>
+        <table class="table">
+           <thead>
+               <tr>
+                   <th ng-click='sortBy("name")'>Name</th>
+                   <th ng-click='sortBy("email")'>Email</th>
+                   <th ng-click='sortBy("apartment")'>Apartment</th>
+                   <th ng-click='sortBy("phone")'>Phone</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr ng-repeat='tenant in tenants | filter:searchFilter | orderBy:sortOrder track by $index'>
+                   <td>{{tenant.name}}</td>
+                   <td>{{tenant.email}}</td>
+                   <td>{{tenant.apartment}}</td>
+                   <td>{{tenant.phone}}</td>
+                   <td>
+                       <button type="button" class="btn btn-danger btn-md" ng-click="removeTenant(tenant)">
+                           <span class="glyphicon glyphicon-remove"></span>
+                       </button>
+                       <button type="button" class="btn btn-primary btn-md" ng-click="editOneTenant(tenant)">
+                           <span class="glyphicon glyphicon-edit"></span>
+                       </button>
+                   </td>
+               </tr>
+           </tbody>
+       </table>
+    </div>
+    </div>
+
+</div>

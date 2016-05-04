@@ -1,0 +1,113 @@
+<div class="container">
+    <div class="tenantFormContainer">
+        <form ng-if="editProperty" ng-submit='saveEditedProperty()'>
+            <h2 class='text-center'>Edit Apartment</h2>
+            <div class="form-group">
+                <label for="">Apartment Number:</label>
+                <input type="number" class='form-control' ng-model='editProperty.apartment' required>
+            </div>
+            <div class="form-group">
+                <label for="">Status</label>
+                <input type="text" class='form-control' ng-model='editProperty.status ' required>
+            </div>
+            <div class="form-group">
+                <label for="">Rent</label>
+                <input type="number" class='form-control' ng-model='editProperty.rent' required>
+            </div>
+            <div class="form-group">
+                <label for="">Utilities Price:</label>
+                <input type="number" class='form-control' ng-model='editProperty.utilitiesPrice' required>
+            </div>
+            <button class='btn btn-default submit' ng-click="hideMyForm()">Cancel</button>
+            <button type='submit' class='btn btn-primary '>Save</button>
+        </form>
+
+        <form ng-if="!editProperty" ng-submit='saveProperty(newProperty)'>
+            <h2 class='text-center'>Apartment</h2>
+            <div class="form-group">
+                <label for="">Apartment Number:</label>
+                <input type="number" class='form-control' ng-model='newProperty.apartment' required>
+            </div>
+            <div class="form-group">
+                <label for="">Status</label>
+                <input type="text" class='form-control' ng-model='newProperty.status' required>
+            </div>
+            <div class="form-group">
+                <label for="">Rent</label>
+                <input type="number" class='form-control' ng-model='newProperty.rent' required>
+            </div>
+            <div class="form-group">
+                <label for="">Utilities Price:</label>
+                <input type="number" class='form-control' ng-model='newProperty.utilitiesPrice' required>
+            </div>
+            <button class='btn btn-default submit' ng-click="hideMyForm()">Cancel</button>
+            <button type='submit' class='btn btn-primary '>Add</button>
+        </form>
+        <div class="filterCollection">
+            <div class='rent'>
+                <form ng-submit='filterSome("rent", rentFilter)' class="form-inline">
+                    <label for="">Rent is equal to:</label>
+                    <input type="number" class='form-control' ng-model='rentFilter'>
+                    <button type='submit' class='btn btn-success'>Filter</button>
+                </form>
+            </div>
+            <div class='rent'>
+                <form ng-submit='filterSome("utilitiesPrice", utilFilter)' class="form-inline">
+                    <label for="">Util Price greater:</label>
+                    <input type="number" class='form-control' ng-model='utilFilter'>
+                    <button type='submit' class='btn btn-success'>Filter</button>
+                </form>
+            </div>
+            <div class='rent'>
+                <form ng-click='filterSome("apartment", aptFilter)' class="form-inline">
+                    <label for="">Apt in floor:</label>
+                    <input type="number" class='form-control ' ng-model='aptFilter'>
+                    <button type='submit' class='btn btn-success'>Filter</button>
+                </form>
+            </div>
+            <!-- <div class=" rent form-group">
+                <form  class="form-inline">
+                    <label for="">Apt Status</label>
+                    <select class="selectpicker col-md-4" >
+                        <option>rented</option>
+                        <option>available</option>
+                    </select>
+                     <button class='btn btn-success' ng-click='rentLessThan()'>Filter</button>
+                </form>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="tenantListContainer">
+        <h1>Properties</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th ng-click='sortBy("apartment")'>Apartment Number</th>
+                    <th ng-click='sortBy("status")'>Status</th>
+                    <th ng-click='sortBy("rent ")'>Rent</th>
+                    <th ng-click='sortBy("utilitiesPrice ")'>Util Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='property in properties | filter:searchFilter | orderBy:sortOrder track by $index'>
+                    <td>{{property.apartment}}</td>
+                    <td>{{property.status}}</td>
+                    <td>{{property.rent}}</td>
+                    <td>{{property.utilitiesPrice}}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-md" ng-click="removeProperty(property)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+
+                        <button type="button" class="btn btn-primary btn-md" ng-click="editOneProperty(property)">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
