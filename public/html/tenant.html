@@ -35,7 +35,10 @@
             </div>
             <div class="form-group">
                 <label for="">Apartment</label>
-                <input type="number" class='form-control' ng-model='newTenant.apartment' required>
+                <select ng-model='newTenant.apartment' class='form-control' required>
+                  <option  ng-repeat='property in properties'>{{property.apartment}}</option>
+                </select>
+                <!-- <input type="number" class='form-control' ng-model='newTenant.apartment' required> -->
             </div>
             <div class="form-group">
                 <label for="">Phone Number:</label>

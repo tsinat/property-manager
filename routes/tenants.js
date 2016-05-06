@@ -2,12 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 var Tenant = require('../models/tenant');
+var Property = require('../models/property');
 
 
 //GET /api/tenants  ----> return array of all tenants
 //POST /api/tenants ----> create a new tenant
 
 router.get('/', (req, res) => {
+    console.log('Property:', Property);
     Tenant.find({}, (err, tenants) => {
         if (err) {
             res.status(400).send(err);
@@ -38,6 +40,40 @@ router.get('/categories/:category', (req, res) => {
         }
     });
 });
+//remove property from tenant
+// router.put('/:propertyId/remove/:tenantId', (req, res) => {
+//     var tenantId = req.params.tenantId;
+//     var propertyId = req.params.propertyId;
+//
+//     Tenant.findById(tenantId, (err, tenant) => {
+//         if(err) return res.status(400).send(err);
+//
+//         tenant.livesin = tenant.livesin.filter(id => {
+//             return id.toString() !== propertyId.toString();
+//         });
+//         tenant.save((err) => {
+//             if(err) return res.status(400).send(err);
+//         });
+//     });
+// });
+// //add property to tenant
+// router.put('/:propertyId/lives/:tenantId', (req, res) => {
+//
+//     var tenantId = req.params.tenantId;
+//     var propertyId = req.params.propertyId;
+//     console.log(tenantId, propertyId);
+//
+//     Tenant.findById(tenantId, (err, tenant) => {
+//         if (err) return res.status(400).send(err);
+//
+//         tenant.livesin.push(propertyId);
+//
+//         tenant.save((err, savedTenant) => {
+//             res.status(err ? 400 : 200).send(err || savedTenant);
+//         });
+//     });
+// });
+
 router.delete('/:id', (req, res) => {
 
     Tenant.findByIdAndRemove(req.params.id, (err, tenant) => {

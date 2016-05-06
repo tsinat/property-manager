@@ -5,13 +5,26 @@ app.controller('homeCtrl', function($scope) {
     console.log('homeCtrl');
 });
 
-app.controller('tenantCtrl', function($scope, Tenant) {
-    console.log('tenantCtrl');
-    getAllTenants()
+app.controller('tenantCtrl', function($scope, Tenant, Property) {
+
+    getAllProperties();
+    getAllTenants();
     $scope.saveTenant = (newTenant) => {
         Tenant.create(newTenant);
         newTenant = {};
         getAllTenants();
+    }
+
+    function getAllProperties() {
+        Property.getAll()
+            .then(res => {
+                // console.log(res.data);
+                $scope.properties = res.data;
+                console.log($scope.properties );
+            })
+            .catch(err => {
+                console.log("err:", err);
+            });
     }
 
     function getAllTenants() {
