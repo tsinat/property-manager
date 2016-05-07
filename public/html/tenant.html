@@ -61,7 +61,7 @@
                </tr>
            </thead>
            <tbody>
-               <tr ng-repeat='tenant in tenants | filter:searchFilter | orderBy:sortOrder track by $index'>
+               <tr ng-repeat='tenant in tenants | filter:searchFilter | orderBy:sortOrder track by $index' ui-sref='tenantDetail({ id: tenant._id })'>
                    <td>{{tenant.name}}</td>
                    <td>{{tenant.email}}</td>
                    <td>{{tenant.apartment}}</td>

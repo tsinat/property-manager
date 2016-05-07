@@ -79,16 +79,6 @@
                     <button type='submit' class='btn btn-success'>Filter</button>
                 </form>
             </div>
-            <!-- <div class=" rent form-group">
-                <form  class="form-inline">
-                    <label for="">Apt Status</label>
-                    <select class="selectpicker col-md-4" >
-                        <option>rented</option>
-                        <option>available</option>
-                    </select>
-                     <button class='btn btn-success' ng-click='rentLessThan()'>Filter</button>
-                </form>
-            </div> -->
         </div>
     </div>
 
@@ -105,7 +95,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat='property in properties | filter:searchFilter | orderBy:sortOrder track by $index'>
+                <tr ng-repeat='property in properties | filter:searchFilter | orderBy:sortOrder track by $index' ui-sref='propertyDetail({ id: property._id })'>
                     <td>{{property.apartment}}</td>
                     <td>{{property.status}}</td>
                     <td>{{property.bedrooms}}</td>

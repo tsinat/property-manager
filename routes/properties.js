@@ -4,7 +4,7 @@ var router = express.Router();
 var Property = require('../models/property');
 var Tenant = require('../models/tenant');
 
-
+console.log('property:', Property);
 
 router.get('/', (req, res) => {
 

@@ -4,6 +4,14 @@ var app = angular.module('propertyApp');
 app.controller('homeCtrl', function($scope) {
     console.log('homeCtrl');
 });
+app.controller('propertyDetailCtrl', function($scope, Property, id) {
+    $scope.property = id.data;
+    console.log(id.data);
+
+});
+app.controller('tenantDetailCtrl', function($scope, Tenant, id) {
+    console.log('tenantDetail');
+});
 
 app.controller('tenantCtrl', function($scope, Tenant, Property) {
 
@@ -20,7 +28,6 @@ app.controller('tenantCtrl', function($scope, Tenant, Property) {
             .then(res => {
                 // console.log(res.data);
                 $scope.properties = res.data;
-                console.log($scope.properties );
             })
             .catch(err => {
                 console.log("err:", err);

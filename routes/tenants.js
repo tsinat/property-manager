@@ -4,7 +4,7 @@ var router = express.Router();
 var Tenant = require('../models/tenant');
 var Property = require('../models/property');
 
-
+console.log('Property Tobiah:',JSON.stringify(Property, 2,null));
 //GET /api/tenants  ----> return array of all tenants
 //POST /api/tenants ----> create a new tenant
 
