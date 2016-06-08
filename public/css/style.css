@@ -4,6 +4,10 @@
     font-weight:bold;
     font-size: 1.5em;
     border-radius: 0;
+    margin-bottom: 0;
+}
+a.nav-link:hover {
+    background-color: #252525 !important;
 }
 .container{
     width:95%;
@@ -100,4 +104,32 @@ span{
     /*background-color: grey;*/
     /*color: white;*/
 
+}
+.coverimage{
+    width:100%;
+    height: auto;
+}
+.home {
+    padding:0;
+    margin:0;
+    background-image: url('../images/house.jpeg');
+    background-color: grey;
+    width:100%;
+    min-height: 600px;
+    background-size: cover;
+
+}
+.ng-scope {
+    padding:0;
+    margin:0;
+}
+.landing {
+    margin-top: 120px;
+    color:silver;
+}
+.navigators {
+    margin-left:70px !important;
+    margin-top:40px;
+    background-color: #23527C;
+    border:none;
 }
